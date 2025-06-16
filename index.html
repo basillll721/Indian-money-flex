@@ -1,79 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Indian's Money Flex</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom right, #fff, #f0f0f0);
-      text-align: center;
-      color: #333;
-    }
-    .header {
-      padding: 50px 20px 20px;
-      background: linear-gradient(to right, #ff9933, #ffffff, #138808);
-    }
-    .header h1 {
-      font-size: 3em;
-      font-weight: bold;
-      background: linear-gradient(to right, #ff9933, #ffffff, #138808, #000080);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin: 0;
-    }
-    .subtext {
-      font-size: 1.2em;
-      margin: 10px 0 30px;
-    }
-    .button {
-      padding: 15px 30px;
-      font-size: 1em;
-      font-weight: bold;
-      color: white;
-      background: linear-gradient(to right, #8000ff, #007bff);
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      margin: 10px;
-      transition: 0.3s;
-    }
-    .button:hover {
-      transform: scale(1.05);
-    }
-    .leaderboard {
-      padding: 40px 20px;
-    }
-    .leaderboard h2 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-    .leaderboard p {
-      font-size: 1em;
-      color: #555;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaderboard</title>
 </head>
 <body>
+  <h1>INDIAN'S MONEY FLEX</h1>
+  <p>Pay to flex. The India's Most Expensive Leaderboard.</p>
+  <a href="claim.html"><button>CLAIM YOUR SPOT</button></a>
 
-  <div class="header">
-    <h1>INDIAN'S MONEY FLEX</h1>
-    <p class="subtext">Pay to flex. The India's Most Expensive Leaderboard.</p>
-    <P class="subtext">If you own a Business this would be best place for marketing.</P>
-    <button class="button"><a href="claim.html">
-  <button>CLAIM YOUR SPOT</button>
-</a></button>
-  </div>
+  <h2>THE LEADERBOARD</h2>
+  <div id="leaderboard-entries">Loading...</div>
 
-  <div class="leaderboard">
-    <h2>THE LEADERBOARD</h2>
-    <p>No entries yet. Be the first!</p>
-    <button class="button"><a href="claim.html">
-  <button>Claim #1 Spot</button>
-</a></button>
-  </div>
-
+  <script>
+    fetch('leaderboard.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('leaderboard-entries');
+        container.innerHTML = '';
+        data.forEach((entry, index) => {
+          container.innerHTML += `
+            <div>
+              <strong>#${index + 1} ${entry.name}</strong> - $${entry.amount.toFixed(2)}<br>
+              ${entry.message ? `<em>${entry.message}</em><br>` : ''}
+              ${entry.picture ? `<img src="${entry.picture}" width="100"><br>` : ''}
+              <hr>
+            </div>
+          `;
+        });
+      })
+      .catch(() => {
+        document.getElementById('leaderboard-entries').innerText = 'Failed to load leaderboard.';
+      });
+  </script>
 </body>
 </html>
