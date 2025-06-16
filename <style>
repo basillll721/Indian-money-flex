@@ -1,0 +1,17 @@
+.gradient-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(to right, #7f00ff, #007bff); /* Purple to Blue */
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.gradient-button:hover {
+  background: linear-gradient(to right, #6a00e0, #0066cc);
+}
