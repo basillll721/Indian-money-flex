@@ -1,64 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Indian Money Flex</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #e0f0ff, #f5f0ff);
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #fff, #f0f0f0);
       text-align: center;
       color: #333;
     }
-    h1 {
-      font-size: 3rem;
-      background: linear-gradient(to right, #4f46e5, #9333ea);
+    .header {
+      padding: 50px 20px 20px;
+      background: linear-gradient(to right, #ff9933, #ffffff, #138808);
+    }
+    .header h1 {
+      font-size: 3em;
+      font-weight: bold;
+      background: linear-gradient(to right, #ff9933, #ffffff, #138808, #000080);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-top: 2rem;
-    }
-    p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0 2rem;
-    }
-    .button {
-      display: inline-block;
-      background: linear-gradient(to right, #9333ea, #3b82f6);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    .button:hover {
-      background: linear-gradient(to right, #7e22ce, #2563eb);
-    }
-    .section {
-      margin-top: 4rem;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      margin: 0;
     }
     .subtext {
-      color: #666;
-      font-size: 1rem;
-      margin-bottom: 2rem;
+      font-size: 1.2em;
+      margin: 10px 0 30px;
+    }
+    .button {
+      padding: 15px 30px;
+      font-size: 1em;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(to right, #8000ff, #007bff);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.3s;
+    }
+    .button:hover {
+      transform: scale(1.05);
+    }
+    .leaderboard {
+      padding: 40px 20px;
+    }
+    .leaderboard h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    .leaderboard p {
+      font-size: 1em;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <h1>INDIAN MONEY FLEX</h1>
-  <p>Pay to flex. The internet's most expensive leaderboard.</p>
-  <a href="#" class="button">CLAIM YOUR SPOT</a>
 
-  <div class="section">
-    <h2>THE LEADERBOARD</h2>
-    <p class="subtext">No entries yet. Be the first!</p>
-    <a href="#" class="button">Claim #1 Spot</a>
+  <div class="header">
+    <h1>INDIAN MONEY FLEX</h1>
+    <p class="subtext">Pay to flex. The internet's most expensive leaderboard.</p>
+    <button class="button">CLAIM YOUR SPOT</button>
   </div>
+
+  <div class="leaderboard">
+    <h2>THE LEADERBOARD</h2>
+    <p>No entries yet. Be the first!</p>
+    <button class="button">Claim #1 Spot</button>
+  </div>
+
 </body>
 </html>
