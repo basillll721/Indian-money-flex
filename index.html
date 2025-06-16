@@ -46,7 +46,7 @@
 
     .leaderboard {
       margin: 20px auto;
-      max-width: 500px;
+      max-width: 600px;
       padding: 20px;
       background: rgba(255,255,255,0.7);
       border-radius: 15px;
@@ -58,6 +58,7 @@
       justify-content: flex-start;
       gap: 15px;
       text-align: left;
+      margin-bottom: 20px;
     }
 
     .entry img {
@@ -80,6 +81,13 @@
       font-weight: bold;
       color: green;
     }
+
+    .rank {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-right: 10px;
+      color: #4a00e0;
+    }
   </style>
 </head>
 <body>
@@ -96,11 +104,32 @@
   <script>
     window.onload = function () {
       const container = document.getElementById('leaderboard');
-      const topUserHTML = localStorage.getItem('topUser');
+      let users = JSON.parse(localStorage.getItem('users')) || [];
 
-      if (topUserHTML) {
-        container.innerHTML = topUserHTML;
+      if (users.length === 0) {
+        container.innerHTML = "<p>No entries yet. Be the first!</p>";
+        return;
       }
+
+      // Sort by amount DESC
+      users.sort((a, b) => b.amount - a.amount);
+
+      // Build HTML
+      let html = "";
+      users.forEach((user, index) => {
+        html += `
+          <div class="entry">
+            <div class="rank">${index + 1}.</div>
+            <img src="${user.image}" alt="Profile" />
+            <div class="entry-content">
+              <strong>${user.name}</strong> - <span class="amount">$${parseFloat(user.amount).toFixed(2)}</span><br/>
+              "${user.message}"
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
     };
   </script>
 </body>
