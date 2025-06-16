@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Claim Your Spot</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #dce3f3, #eae6f7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.25rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .highlight-box {
+      background: #fff7db;
+      border: 1px solid #ffe58f;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .highlight-box strong {
+      color: #d97706;
+    }
+
+    .file-input {
+      background: linear-gradient(to right, #4f46e5, #9333ea);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    .file-input:hover {
+      background: linear-gradient(to right, #3730a3, #7e22ce);
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .cancel-btn, .pay-btn {
+      width: 48%;
+      padding: 0.75rem;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cancel-btn {
+      background: #e5e7eb;
+    }
+
+    .pay-btn {
+      background: linear-gradient(to right, #9333ea, #3b82f6);
+      color: white;
+    }
+
+    .pay-btn:hover {
+      background: linear-gradient(to right, #7e22ce, #2563eb);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Claim Your Spot</h2>
+
+    <label for="name">Name *</label>
+    <input type="text" id="name" placeholder="Your name or handle" required />
+
+    <label for="amount">Amount (USD) *</label>
+    <input type="number" id="amount" value="100.00" required />
+
+    <div class="highlight-box">
+      👑 <strong>You're bidding for the #1 spot!</strong> Add your picture and message:
+      <br><br>
+      <label for="fileUpload">Upload Your Picture (optional)</label><br>
+      <input type="file" id="fileUpload" accept="image/*" class="file-input" />
+      <p style="font-size: 0.85rem; color: #555;">Max 4MB, JPG/PNG/GIF/WebP</p>
+
+      <label for="message">Your Message (optional)</label>
+      <textarea id="message" maxlength="100" placeholder="Your message to the world (max 100 characters)"></textarea>
+      <div style="text-align: right; font-size: 0.85rem; color: #666;">0/100 characters</div>
+    </div>
+
+    <div class="buttons">
+      <button class="cancel-btn">Cancel</button>
+      <button class="pay-btn">Pay Now</button>
+    </div>
+  </div>
+</body>
+</html>
